@@ -1,14 +1,17 @@
 import React, { useState } from "react";
-import { Forms } from "./components/Form";
+import Form from "./components/Forms";
+import Team from "./components/Team";
 import "./App.css";
 
 function App() {
-  // const [member, setMember] = useState([]);
-  // const [newMember, setNewMember] = useState("");
-
+  const [member, setMember] = useState([]);
+  const addNewMember = m => {
+    setMember([...member, m]);
+  };
   return (
     <div className="App">
-      <Forms />
+      <Form addNewMember={addNewMember} />
+      <Team member={member} />
     </div>
   );
 }
